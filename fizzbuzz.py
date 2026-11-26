@@ -4,10 +4,17 @@ import sys
 def main():
     if len(sys.argv) > 1:
         if len(sys.argv) == 2 and sys.argv[1] == "--version":
-            print("fizzbuzz 1.0")
+            print("fizzbuzz 1.5")
             return
+        if sys.argv[1] in ("--help", "-h"):
+            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [N]")
+            return
+        if sys.argv[1] == "--upto" and len(sys.argv) == 2:
+            print("error: --upto requires a value", file=sys.stderr)
+            sys.exit(2)
+        arg = sys.argv[2] if sys.argv[1] == "--upto" else sys.argv[1]
         try:
-            upto = int(sys.argv[1])
+            upto = int(arg)
         except ValueError:
             upto = 0
         if upto < 1:
