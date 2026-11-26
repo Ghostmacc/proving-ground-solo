@@ -9,7 +9,10 @@ def main():
         if sys.argv[1] in ("--help", "-h"):
             print("usage: fizzbuzz.py [-h] [--version] [--upto N] [N]")
             return
-        arg = sys.argv[2] if sys.argv[1] == "--upto" and len(sys.argv) > 2 else sys.argv[1]
+        if sys.argv[1] == "--upto" and len(sys.argv) == 2:
+            print("error: --upto requires a value", file=sys.stderr)
+            sys.exit(2)
+        arg = sys.argv[2] if sys.argv[1] == "--upto" else sys.argv[1]
         try:
             upto = int(arg)
         except ValueError:
