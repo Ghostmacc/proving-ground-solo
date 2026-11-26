@@ -3,6 +3,9 @@ import sys
 
 def main():
     if len(sys.argv) > 1:
+        if len(sys.argv) == 2 and sys.argv[1] == "--version":
+            print("fizzbuzz 1.0")
+            return
         try:
             upto = int(sys.argv[1])
         except ValueError:
