@@ -1,0 +1,12 @@
+# Read only from the default branch. Anything no rule covers needs an owner.
+version: 1
+mode: enforce
+stop: false
+required_checks: [check]
+owners: [Ghostmacc]
+rules:
+  - id: fizzbuzz
+    paths: [fizzbuzz.py]
+    inspectors: 1
+    owner_signoff: false
+    protected: false
