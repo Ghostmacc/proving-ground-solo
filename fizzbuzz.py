@@ -4,7 +4,7 @@ import sys
 def main():
     if len(sys.argv) > 1:
         if len(sys.argv) == 2 and sys.argv[1] == "--version":
-            print("fizzbuzz 1.5")
+            print("fizzbuzz 1.6")
             return
         if sys.argv[1] in ("--help", "-h"):
             print("usage: fizzbuzz.py [-h] [--version] [--upto N] [N]")
