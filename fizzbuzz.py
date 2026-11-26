@@ -6,8 +6,12 @@ def main():
         if len(sys.argv) == 2 and sys.argv[1] == "--version":
             print("fizzbuzz 1.0")
             return
+        if sys.argv[1] in ("--help", "-h"):
+            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [N]")
+            return
+        arg = sys.argv[2] if sys.argv[1] == "--upto" and len(sys.argv) > 2 else sys.argv[1]
         try:
-            upto = int(sys.argv[1])
+            upto = int(arg)
         except ValueError:
             upto = 0
         if upto < 1:
