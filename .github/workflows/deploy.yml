@@ -49,5 +49,8 @@ jobs:
           printf '<!doctype html><title>proving-ground-solo</title><p>commit <code>%s</code></p><p><a href="fizzbuzz.txt">fizzbuzz.txt</a></p>\n' "$GITHUB_SHA" > site/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages-${{ github.run_attempt }}
           path: site
       - uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
