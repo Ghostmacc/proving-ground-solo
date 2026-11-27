@@ -10,3 +10,10 @@ ship policy does not cover needs the owner's approval of that exact commit.
 - `python fizzbuzz.py N` prints 1 through N, where N is a positive integer.
 - `--help` or `-h` prints usage.
 - `--version` prints the version.
+
+## Proof markers
+
+- `.flaky-once` makes the first attempt of the check fail on purpose.
+- `.deploy-flaky-once` makes the first deployment attempt fail on purpose.
+
+Both exist so the factory's reruns can be observed.
