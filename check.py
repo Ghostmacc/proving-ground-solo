@@ -43,6 +43,11 @@ def main():
         print(f"FAIL: fizzbuzz.py --sum 0 exited {out.returncode}, want 2")
         return 1
     print("PASS: fizzbuzz.py --sum 0 exits 2")
+    out = subprocess.run([sys.executable, "-m", "unittest", "test_roman"], capture_output=True, text=True, timeout=30)
+    if out.returncode != 0:
+        print(f"FAIL: test_roman exited {out.returncode}: {out.stderr.strip()[:200]}")
+        return 1
+    print("PASS: test_roman")
     return 0
 
 
