@@ -3,6 +3,7 @@
 import sys
 
 
+# Adopted by the factory on its Claude Ship marker alone.
 def main():
     args = [a for a in sys.argv[1:] if a != "--upper"]
     upper = len(args) != len(sys.argv) - 1
