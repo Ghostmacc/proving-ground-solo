@@ -2,17 +2,19 @@ import sys
 
 
 def main():
-    if len(sys.argv) > 1:
-        if len(sys.argv) == 2 and sys.argv[1] == "--version":
+    args = [a for a in sys.argv[1:] if a != "--upper"]
+    upper = len(args) != len(sys.argv) - 1
+    if args:
+        if len(args) == 1 and args[0] == "--version":
             print("fizzbuzz 1.7")
             return
-        if sys.argv[1] in ("--help", "-h"):
-            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [N]")
+        if args[0] in ("--help", "-h"):
+            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [N]")
             return
-        if sys.argv[1] == "--upto" and len(sys.argv) == 2:
+        if args[0] == "--upto" and len(args) == 1:
             print("error: --upto requires a value", file=sys.stderr)
             sys.exit(2)
-        arg = sys.argv[2] if sys.argv[1] == "--upto" else sys.argv[1]
+        arg = args[1] if args[0] == "--upto" else args[0]
         try:
             upto = int(arg)
         except ValueError:
@@ -23,7 +25,11 @@ def main():
     else:
         upto = 100
     for n in range(1, upto + 1):
-        print("FizzBuzz" if n % 15 == 0 else "Fizz" if n % 3 == 0 else "Buzz" if n % 5 == 0 else n)
+        word = "FizzBuzz" if n % 15 == 0 else "Fizz" if n % 3 == 0 else "Buzz" if n % 5 == 0 else None
+        if word is None:
+            print(n)
+        else:
+            print(word.upper() if upper else word)
 
 
 if __name__ == "__main__":
