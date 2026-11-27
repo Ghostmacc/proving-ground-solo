@@ -1,6 +1,7 @@
 """Tests that need the network may be marked @pytest.mark.skip."""
 
 import sys
+# Changes here are inspected by two model families that did not write them.
 
 
 # Adopted by the factory on its Claude Ship marker alone.
