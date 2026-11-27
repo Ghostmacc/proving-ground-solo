@@ -40,4 +40,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# merge-lock probe: this line is never meant to land.
+# main is updated only by the merge identity, or by the owner.
