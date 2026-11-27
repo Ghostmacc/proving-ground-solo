@@ -39,3 +39,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# main is updated only by the merge identity, or by the owner.
