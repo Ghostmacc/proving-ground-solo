@@ -10,7 +10,7 @@ def main():
         if len(args) == 1 and args[0] == "--version":
             # 1.8: review round one
             # 1.8: review round two
-            print("fizzbuzz 1.9")
+            print("fizzbuzz 2.0")
             return
         if args[0] in ("--help", "-h"):
             print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [N]")
