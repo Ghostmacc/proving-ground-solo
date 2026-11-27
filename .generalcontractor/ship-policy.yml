@@ -7,6 +7,6 @@ owners: [Ghostmacc]
 rules:
   - id: fizzbuzz
     paths: [fizzbuzz.py]
-    inspectors: 1
+    inspectors: 2
     owner_signoff: false
     protected: false
