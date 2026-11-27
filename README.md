@@ -17,3 +17,5 @@ ship policy does not cover needs the owner's approval of that exact commit.
 - `.deploy-flaky-once` makes the first deployment attempt fail on purpose.
 
 Both exist so the factory's reruns can be observed.
+
+Remove a marker again once its rerun has been observed.
