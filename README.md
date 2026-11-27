@@ -8,6 +8,7 @@ ship policy does not cover needs the owner's approval of that exact commit.
 
 - `python fizzbuzz.py` prints 1 through 100.
 - `python fizzbuzz.py N` prints 1 through N, where N is a positive integer.
+- `python fizzbuzz.py --sum` prints the sum of the multiples of 3 or 5 from 1 through 100; `--sum N` prints that sum from 1 through N.
 - `--help` or `-h` prints usage.
 - `--version` prints the version.
 

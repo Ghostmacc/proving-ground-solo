@@ -17,6 +17,16 @@ def main():
         if args[0] in ("--help", "-h"):
             print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [N]")
             return
+        if args[0] == "--sum":
+            try:
+                limit = int(args[1]) if len(args) > 1 else 100
+            except ValueError:
+                limit = 0
+            if limit < 1:
+                print("error: N must be a positive integer", file=sys.stderr)
+                sys.exit(2)
+            print(sum(n for n in range(1, limit + 1) if n % 3 == 0 or n % 5 == 0))
+            return
         if args[0] == "--upto" and len(args) == 1:
             print("error: --upto requires a value", file=sys.stderr)
             sys.exit(2)
