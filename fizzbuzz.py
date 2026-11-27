@@ -9,6 +9,7 @@ def main():
     if args:
         if len(args) == 1 and args[0] == "--version":
             # 1.8: review round one
+            # 1.8: review round two
             print("fizzbuzz 1.8")
             return
         if args[0] in ("--help", "-h"):
