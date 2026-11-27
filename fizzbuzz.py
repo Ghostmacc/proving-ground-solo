@@ -1,3 +1,5 @@
+"""Tests that need the network may be marked @pytest.mark.skip."""
+
 import sys
 
 
