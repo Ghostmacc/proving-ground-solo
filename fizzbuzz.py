@@ -44,3 +44,4 @@ if __name__ == "__main__":
 # main is updated only by the merge identity, or by the owner.
 
 # This change waited out two failed inspections before it was inspected.
+# An inspector seat that could not answer was passed over on the way here.
