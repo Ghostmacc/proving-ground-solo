@@ -48,6 +48,11 @@ def main():
         print(f"FAIL: test_roman exited {out.returncode}: {out.stderr.strip()[:200]}")
         return 1
     print("PASS: test_roman")
+    out = subprocess.run([sys.executable, "-m", "unittest", "test_fizzbuzz"], capture_output=True, text=True, timeout=30)
+    if out.returncode != 0:
+        print(f"FAIL: test_fizzbuzz exited {out.returncode}: {out.stderr.strip()[:200]}")
+        return 1
+    print("PASS: test_fizzbuzz")
     return 0
 
 
