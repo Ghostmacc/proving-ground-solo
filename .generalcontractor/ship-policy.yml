@@ -5,8 +5,9 @@ stop: false
 required_checks: [check]
 owners: [Ghostmacc]
 rules:
+  # 2026-11-27: one inspector while the Google and OpenAI subscriptions are out of quota; put 2 back when a second family answers.
   - id: fizzbuzz
     paths: [fizzbuzz.py]
-    inspectors: 2
+    inspectors: 1
     owner_signoff: false
     protected: false
