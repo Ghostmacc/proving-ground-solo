@@ -8,7 +8,9 @@ def main():
     upper = len(args) != len(sys.argv) - 1
     if args:
         if len(args) == 1 and args[0] == "--version":
-            print("fizzbuzz 1.7")
+            # 1.8: review round one
+            # 1.8: review round two
+            print("fizzbuzz 1.8")
             return
         if args[0] in ("--help", "-h"):
             print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [N]")
