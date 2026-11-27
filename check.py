@@ -27,6 +27,22 @@ def main():
         print(f"FAIL: {len(got)} lines, want {len(want)}")
         return 1
     print("PASS: 100 lines match")
+    for extra, want in (([], "2418"), (["10"], "33"), (["15"], "60")):
+        cmd = [sys.executable, "fizzbuzz.py", "--sum", *extra]
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        label = " ".join(cmd[1:])
+        if out.returncode != 0:
+            print(f"FAIL: {label} exited {out.returncode}: {out.stderr.strip()[:200]}")
+            return 1
+        if out.stdout != want + "\n":
+            print(f"FAIL: {label} printed {out.stdout!r}, want {want!r}")
+            return 1
+        print(f"PASS: {label} prints {want}")
+    out = subprocess.run([sys.executable, "fizzbuzz.py", "--sum", "0"], capture_output=True, text=True, timeout=30)
+    if out.returncode != 2:
+        print(f"FAIL: fizzbuzz.py --sum 0 exited {out.returncode}, want 2")
+        return 1
+    print("PASS: fizzbuzz.py --sum 0 exits 2")
     return 0
 
 
