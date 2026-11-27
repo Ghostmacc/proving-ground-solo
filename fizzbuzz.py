@@ -1,6 +1,7 @@
 """Tests that need the network may be marked @pytest.mark.skip."""
 
 import sys
+from roman import to_roman
 # Changes here are inspected by two model families that did not write them.
 
 
@@ -8,6 +9,9 @@ import sys
 def main():
     args = [a for a in sys.argv[1:] if a != "--upper"]
     upper = len(args) != len(sys.argv) - 1
+    before = len(args)
+    args = [a for a in args if a != "--roman"]
+    roman = len(args) != before
     if args:
         if len(args) == 1 and args[0] == "--version":
             # 1.8: review round one
@@ -15,7 +19,7 @@ def main():
             print("fizzbuzz 2.5")
             return
         if args[0] in ("--help", "-h"):
-            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [N]")
+            print("usage: fizzbuzz.py [-h] [--version] [--upto N] [--upper] [--roman] [N]")
             return
         if args[0] == "--sum":
             try:
@@ -40,10 +44,13 @@ def main():
             sys.exit(2)
     else:
         upto = 100
+    if roman and upto > 3999:
+        print("error: N must be at most 3999 with --roman", file=sys.stderr)
+        sys.exit(2)
     for n in range(1, upto + 1):
         word = "FizzBuzz" if n % 15 == 0 else "Fizz" if n % 3 == 0 else "Buzz" if n % 5 == 0 else None
         if word is None:
-            print(n)
+            print(to_roman(n) if roman else n)
         else:
             print(word.upper() if upper else word)
 
